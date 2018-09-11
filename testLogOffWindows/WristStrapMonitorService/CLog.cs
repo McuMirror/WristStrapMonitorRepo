@@ -36,10 +36,10 @@ namespace LogFiles
                 System.IO.Directory.CreateDirectory(LogFolder);
             }
             LogFileName = GetNewFileNameDate(LogFolder);
-          
+
             if (File.Exists(LogFileName))
             {
-               
+
             }
         }
 
@@ -59,7 +59,7 @@ namespace LogFiles
             {
                 return "";
             }
-          
+
         }
 
         static Task WriteToFile(string instr)
@@ -67,7 +67,7 @@ namespace LogFiles
             return LogWriteAsync(instr);
         }
 
-       
+
 
         static async Task LogWriteAsync(string inStr)
         {
@@ -88,21 +88,21 @@ namespace LogFiles
                     sw.Dispose();
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
-                string m = e.Message+" "+inStr;
+                string m = e.Message + " " + inStr;
             }
             finally
             {
 
             }
-             
-                
+
+
         }
 
         private void LogWrite(string inStr)
         {
-            if(EnableLog)
+            if (EnableLog)
             {
                 TimeSpan ts = DateTime.Now - currentLogDate;
                 if (ts.Days > 0)

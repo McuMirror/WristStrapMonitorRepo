@@ -15,12 +15,12 @@ using SerialLib;
 
 
 
-
 namespace SerialPart
 {
     public class Program
     {
         public CTest mtest;
+
         private static void Main(string[] args)
         {
             testGithub.TestGithub();

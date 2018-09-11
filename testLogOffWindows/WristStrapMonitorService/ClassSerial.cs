@@ -49,7 +49,7 @@ namespace SerialLib
             {
                 ManagementBaseObject instance = (ManagementBaseObject)e.NewEvent["TargetInstance"];
 
-               
+
                 string[] deviceArr = deviceID.Split('|');
                 int deviceArrLen = deviceArr.Length;
 
@@ -135,7 +135,7 @@ namespace SerialLib
             }
             catch (Exception g)
             {
-               // HandleCatchMessage(ref g);
+                // HandleCatchMessage(ref g);
 
             }
             callback("UsbCablePlugIn;");
@@ -147,7 +147,7 @@ namespace SerialLib
             try
             {
                 ManagementBaseObject instance = (ManagementBaseObject)e.NewEvent["TargetInstance"];
-            //    if (vserial.communicationErrorBool == false)
+                //    if (vserial.communicationErrorBool == false)
                 {
                     string[] deviceArr = deviceID.Split('|');
                     int deviceArrLen = deviceArr.Length;
@@ -161,20 +161,20 @@ namespace SerialLib
                             // calibrationBtn.Enabled = false;
                             epState = eProgramState.UsbPlugIn;
 
-                           callback("UsbCableUnplug;");// ("USB cable unplug detected");
-                            //OnDevicePluggedIn(EventArgs.Empty);
-                            //  AppendToLogFile("USB_PLUG_OUT_DETECTED");
-                         //   vserial.setCommunicationError(true);
-                         //   vserial.ClosePort();
-                         //   LogOff();
+                            callback("UsbCableUnplug;");// ("USB cable unplug detected");
+                                                        //OnDevicePluggedIn(EventArgs.Empty);
+                                                        //  AppendToLogFile("USB_PLUG_OUT_DETECTED");
+                                                        //   vserial.setCommunicationError(true);
+                                                        //   vserial.ClosePort();
+                                                        //   LogOff();
                         }
                     }
-                 //   vserial.communicationErrorBool = true;
+                    //   vserial.communicationErrorBool = true;
                 }
             }
             catch (Exception g)
             {
-              //  HandleCatchMessage(ref g);
+                //  HandleCatchMessage(ref g);
 
             }
         }
@@ -201,7 +201,7 @@ namespace SerialLib
         public bool queryDone;
         private DateTime queryStartTime;
 
-        public void serialQuery(byte[] commandIn,  List<string> vqueryExpectedReturn, int vqueryTimeOutMilliSec)
+        public void serialQuery(byte[] commandIn, List<string> vqueryExpectedReturn, int vqueryTimeOutMilliSec)
         {
             try
             {
@@ -218,11 +218,11 @@ namespace SerialLib
                     callback("SerialQueryNotAllowAsComPortFailed");
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 callback("ExceptionHit:" + e.Message + ";");
             }
-          
+
         }
         public void sendBytes(byte[] inbytes)
         {
@@ -267,7 +267,7 @@ namespace SerialLib
             strRx = new List<string>();
             mserial = new SerialPort();
             strBufRx = "";
-           // sComPort = USBTools.doGetUsb(usbDeviceString);
+            // sComPort = USBTools.doGetUsb(usbDeviceString);
         }
 
         public void Init()
@@ -303,15 +303,15 @@ namespace SerialLib
                 }
                 else
                 {
-                    callback("COMPORT_OPEN_SUCCESS:"+sComPort+";");
+                    callback("COMPORT_OPEN_SUCCESS:" + sComPort + ";");
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
-                callback("ClassSerial:ExceptionHit:"+e.Message+";");
+                callback("ClassSerial:ExceptionHit:" + e.Message + ";");
             }
-           
-           
+
+
         }
         public int OpenPort(string comPort)
         {
@@ -342,7 +342,7 @@ namespace SerialLib
                 string errMsg = e.Message;
                 error = 0x02;
                 return error;
-            }         
+            }
             return error;
         }
 
@@ -389,14 +389,14 @@ namespace SerialLib
                     }
                 }
             }
-            if(returnNeeded)
+            if (returnNeeded)
             {
                 callback("SerialDataReceived;");
             }
         }
 
-          
-        
+
+
     }
 }
 

@@ -12,7 +12,7 @@ using System.Runtime.InteropServices;
 
 using AsyncTaskWithEvent;
 using LogFiles;
-using SerialLib;
+using SerialPart;
 
 
 
@@ -27,7 +27,7 @@ namespace WristStrapMonitorService
     public partial class WristStrapMonitorService : ServiceBase
     {
        // private System.ComponentModel.IContainer components;
-        private System.Diagnostics.EventLog eventLog1;
+      //  private System.Diagnostics.EventLog eventLog1;
         [DllImport("advapi32.dll", SetLastError = true)]
         private static extern bool SetServiceStatus(IntPtr handle, ref ServiceStatus serviceStatus);
 
@@ -35,20 +35,20 @@ namespace WristStrapMonitorService
 
         private void ForClassSerialCallBack(string inStr)
         {
-            eventLog1.WriteEntry("ClassSerial:" + inStr);
+           // eventLog1.WriteEntry("ClassSerial:" + inStr);
         }
 
         public WristStrapMonitorService()
         {
             InitializeComponent();
-            eventLog1 = new System.Diagnostics.EventLog();
+         //   eventLog1 = new System.Diagnostics.EventLog();
             if (!System.Diagnostics.EventLog.SourceExists("JabilWristStrapLog"))
             {
                 System.Diagnostics.EventLog.CreateEventSource(
                     "JabilWristStrapLog", "JabilWristStrapNewLog");
             }
-            eventLog1.Source = "JabilWristStrapLog";
-            eventLog1.Log = "JabilWristStrapNewLog";
+          //  eventLog1.Source = "JabilWristStrapLog";
+          //  eventLog1.Log = "JabilWristStrapNewLog";
         }
         public CTest mtest;
         protected override void OnStart(string[] args)
@@ -67,10 +67,10 @@ namespace WristStrapMonitorService
             // Update the service state to Running.  
             serviceStatus.dwCurrentState = ServiceState.SERVICE_RUNNING;
             SetServiceStatus(this.ServiceHandle, ref serviceStatus);
-            eventLog1.WriteEntry("In OnStart");
+        //    eventLog1.WriteEntry("In OnStart");
 
             CTest mtest = new CTest();
-            mtest.AssignEventLog(ref eventLog1);
+          //  mtest.AssignEventLog(ref eventLog1);
             mtest.Init();
             
         }
@@ -79,12 +79,12 @@ namespace WristStrapMonitorService
 
         private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
-            eventLog1.WriteEntry("Monitoring the System", EventLogEntryType.Information, eventId++);
+          //  eventLog1.WriteEntry("Monitoring the System", EventLogEntryType.Information, eventId++);
         }
 
         protected override void OnContinue()
         {
-            eventLog1.WriteEntry("In OnContinue.");
+           // eventLog1.WriteEntry("In OnContinue.");
         }
         protected override void OnStop()
         {
@@ -93,7 +93,7 @@ namespace WristStrapMonitorService
             serviceStatus.dwCurrentState = ServiceState.SERVICE_STOPPED;
             serviceStatus.dwWaitHint = 100000;
             SetServiceStatus(this.ServiceHandle, ref serviceStatus);
-            eventLog1.WriteEntry("In onStop.");
+          //  eventLog1.WriteEntry("In onStop.");
         }
 
 

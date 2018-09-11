@@ -28,8 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            // 
+            // WristStrapMonitorService
+            // 
+            this.CanPauseAndContinue = true;
             this.ServiceName = "WristStrapMonitorService";
+
         }
 
         #endregion

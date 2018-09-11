@@ -35,7 +35,10 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
     <Reference Include="System.Management" />
+    <Reference Include="System.Messaging" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,6 +50,7 @@
   <ItemGroup>
     <Compile Include="ClassSerial.cs" />
     <Compile Include="CLog.cs" />
+    <Compile Include="CMsmqIPC.cs" />
     <Compile Include="CTest.cs" />
     <Compile Include="mAsyncTask.cs" />
     <Compile Include="ProjectInstaller.cs">
@@ -56,6 +60,7 @@
       <DependentUpon>ProjectInstaller.cs</DependentUpon>
     </Compile>
     <Compile Include="USBTools.cs" />
+    <Compile Include="WindowsLoginLib.cs" />
     <Compile Include="WristStrapMonitorService.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -71,6 +76,9 @@
   <ItemGroup>
     <EmbeddedResource Include="ProjectInstaller.resx">
       <DependentUpon>ProjectInstaller.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WristStrapMonitorService.resx">
+      <DependentUpon>WristStrapMonitorService.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -8,5 +8,9 @@ namespace SerialPart
 {
     class testGithub
     {
+        public static void TestGithub()
+        {
+            Console.WriteLine("TestGithub");
+        }
     }
 }

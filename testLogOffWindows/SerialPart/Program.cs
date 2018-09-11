@@ -23,6 +23,7 @@ namespace SerialPart
         public CTest mtest;
         private static void Main(string[] args)
         {
+            testGithub.TestGithub();
             CTest mtest = new CTest();
             mtest.Init();
             int a = 0;
